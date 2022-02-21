@@ -11,16 +11,17 @@ Singleton es usado cuando queremos crear una instancia de una clase en concreto,
   1.- Un constructor tipo private.
   2.- Un constructor tipo private que verifique si ya existe una instancia de su clase.
   
- -> Java
+Java.
  
- --------------
- public class Main 
+
+public class Main {
+ public static void main(String[] args) 
  {
-    public static void main(String[] args) 
-    {
-        Singleton miSingleton = Singleton.getSingleton();
-        Singleton otroSingleton=Singleton.getSingleton();
-        System.out.println(miSingleton==otroSingleton);
+          Singleton miSingleton = Singleton.getSingleton();
+
+          Singleton otroSingleton=Singleton.getSingleton();
+
+          System.out.println(miSingleton==otroSingleton);
     }
 }
 
@@ -35,7 +36,6 @@ public class Singleton
        return singleton;
     }
 }
---------------
 
 -> Python
 --------------
@@ -64,39 +64,51 @@ Builder:
  -> Java
  
 public class Pizza {
+
     private String masa = "";
+    
     private String relleno = "";
-    private String salsa = "";
+    
+    private String salsa = "";  
+    
     public void setMasa(String masa)
     {
         this.masa = masa;
     }
+    
     public void setRelleno(String relleno)
     {
         this.relleno = relleno;
     }
+    
     public void setSalsa(String salsa)
     {
         this.salsa = salsa;
     }
+    
     public void dataPizza()
     {
         System.out.println("");
         System.out.print("Pizza Hawaiana\n\n" + "Tipo masa: " + this.masa + "\nTipo Salsa: " + this.salsa + "\nTipo de relleno: " + this.relleno);
     }
+    
 }
 
-public class HawaiPizzaBuilder extends PizzaBuilder {
+public class HawaiPizzaBuilder extends PizzaBuilder
+{
+
     @Override
     public void buildMasa()
     {
         pizza.setMasa("suave");
     }
+      
     @Override 
     public void buildSalsa()
     {
         pizza.setSalsa("dulce");
     }
+    
     @Override
     public void buildRelleno()
     {
@@ -105,6 +117,7 @@ public class HawaiPizzaBuilder extends PizzaBuilder {
 }
 
 public abstract class PizzaBuilder {
+
     protected Pizza pizza;
     public Pizza getPizza()
     {
@@ -121,6 +134,7 @@ public abstract class PizzaBuilder {
 }
 
 public class Principal {
+
     public static void main(String[] args)
     {
         Cocina cocina = new Cocina();
@@ -164,11 +178,13 @@ Factory
 
  
  -> Java
- public interface Shape{
+  
+public interface Shape{
     void draw();
 }
 
 public class Rectangle implements Shape {
+
     @Override
     public void draw()
     {
@@ -186,6 +202,7 @@ public class Rectangle implements Shape {
 
 
 public class Square implements Shape {
+
     @Override
     public void draw()
     {
@@ -202,6 +219,7 @@ public class Square implements Shape {
 }
 
 public class ShapeFactory {
+
     //use getShape method to get object of type shape 
     public Shape getShape(String shapeType){
        if(shapeType == null){
@@ -219,6 +237,7 @@ public class ShapeFactory {
  }
  
  public class Principal {
+ 
     public static void main(String[] args){
         ShapeFactory shapeFactory = new ShapeFactory();
         // Construyendo un objeto de tipo triangulo
@@ -239,6 +258,7 @@ public class ShapeFactory {
 
 -> Python
 class shape(object):
+
     numLados = 0
     def __init__(self, numLados):
         print("figura construida")
@@ -251,6 +271,7 @@ class shape(object):
 from Shape import shape
 
 class square(shape):
+
     """ Esta clase hereda de la super clase Shape """
     def __init__(self, numLados):
         print("Cuadrado")
@@ -259,10 +280,12 @@ class square(shape):
         for i in range(0, self.numLados):
             for j in range(0, self.numLados):
                 print("* ", end="")
-            print(" ")          
- from Shape import shape
+            print(" ")    
+            
+from Shape import shape
  
 class rectangle(shape):
+
     """ Esta clase hereda de la super clase Shape """
     def __init__(self, numLados):
         print("Rectangulo")
@@ -274,9 +297,11 @@ class rectangle(shape):
             print(" ")
 
 from Rectangle import rectangle
+
 from Square import square
 
 class shapeFactory(object):
+  
     def get_Shape(self, figura, numlados):
         if(figura == 'r'):
             return rectangle(numlados)
@@ -316,6 +341,7 @@ Prototype
 -> Java
 --------------
 public interface Figura {
+
     public void setNombre(String n);
     public String getNombre();
     public void mover(int x, int y);
@@ -323,6 +349,7 @@ public interface Figura {
     public Figura clonar();
 }
 public class Circulo implements Figura {
+
     private String nombre;
     private int posicionX, posicionY;
     public Circulo(String nombre, int x, int y){this.nombre = nombre; this.posicionX = x; this.posicionY = y;}
@@ -354,8 +381,9 @@ public class Circulo implements Figura {
         return figura;
     }
 }
-
+  
 public class Cuadrado implements Figura {
+
     private String nombre;
     private int posicionX, posicionY;
     public Cuadrado(String nombre, int x, int y){this.nombre = nombre; this.posicionX = x; this.posicionY = y;}
@@ -389,6 +417,7 @@ public class Cuadrado implements Figura {
 }
 
 public class Principal {
+
     public static void main(String [] args)
     {
         Circulo circulo = new Circulo("Mi circulo", 10, 10);
