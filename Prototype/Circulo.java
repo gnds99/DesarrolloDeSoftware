@@ -24,8 +24,8 @@ public class Circulo implements Figura {
 
     @Override
     public void getPosicion(){
-        System.out.println("Cuadrado en x: " + this.posicionX);
-        System.out.println("Cuadrado en y: " + this.posicionY);
+        System.out.println("Circulo en x: " + this.posicionX);
+        System.out.println("Circuli en y: " + this.posicionY);
     }
 
     @Override
