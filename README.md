@@ -13,14 +13,11 @@ Singleton es usado cuando queremos crear una instancia de una clase en concreto,
   
 Java.
  
-
 public class Main {
  public static void main(String[] args) 
  {
           Singleton miSingleton = Singleton.getSingleton();
-
           Singleton otroSingleton=Singleton.getSingleton();
-
           System.out.println(miSingleton==otroSingleton);
     }
 }
@@ -37,15 +34,25 @@ public class Singleton
     }
 }
 
--> Python
---------------
+-> Python.
 
---------------
+class SingletonMeta(type):
+    _instances={}
+    def __call__(cls,*args,**kwargs):
+        if cls not in cls._instances:
+            instance=super().__call__(*args,**kwargs)
+            cls._instances[cls]=instance
+        return cls._instances[cls]
+
+class Singleton(metaclass=SingletonMeta):
+    def metodo(self):
+        pass
+
+a=Singleton()
+b=Singleton()
 
 * Caso de uso:
   1.- Crear una conexion para una base de datos
-
-+-------------------------------------------------------------------------------------------------------------------+
 
 Builder:
 
@@ -63,35 +70,28 @@ Builder:
  
  -> Java
  
-public class Pizza {
-
+public class Pizza 
+{
     private String masa = "";
-    
     private String relleno = "";
-    
     private String salsa = "";  
-    
     public void setMasa(String masa)
     {
         this.masa = masa;
     }
-    
     public void setRelleno(String relleno)
     {
         this.relleno = relleno;
     }
-    
     public void setSalsa(String salsa)
     {
         this.salsa = salsa;
     }
-    
     public void dataPizza()
     {
         System.out.println("");
         System.out.print("Pizza Hawaiana\n\n" + "Tipo masa: " + this.masa + "\nTipo Salsa: " + this.salsa + "\nTipo de relleno: " + this.relleno);
-    }
-    
+    }  
 }
 
 public class HawaiPizzaBuilder extends PizzaBuilder
@@ -340,16 +340,16 @@ Prototype
 
 -> Java
 --------------
-public interface Figura {
-
+public interface Figura 
+{
     public void setNombre(String n);
     public String getNombre();
     public void mover(int x, int y);
     public void getPosicion();
     public Figura clonar();
 }
-public class Circulo implements Figura {
-
+public class Circulo implements Figura 
+{
     private String nombre;
     private int posicionX, posicionY;
     public Circulo(String nombre, int x, int y){this.nombre = nombre; this.posicionX = x; this.posicionY = y;}
@@ -382,8 +382,8 @@ public class Circulo implements Figura {
     }
 }
   
-public class Cuadrado implements Figura {
-
+public class Cuadrado implements Figura 
+{
     private String nombre;
     private int posicionX, posicionY;
     public Cuadrado(String nombre, int x, int y){this.nombre = nombre; this.posicionX = x; this.posicionY = y;}
@@ -416,8 +416,8 @@ public class Cuadrado implements Figura {
     }
 }
 
-public class Principal {
-
+public class Principal 
+{
     public static void main(String [] args)
     {
         Circulo circulo = new Circulo("Mi circulo", 10, 10);
@@ -438,19 +438,121 @@ public class Principal {
     }
     
 }
---------------
 
 -> Python:
+from abc import ABC, abstractclassmethod
 
---------------
+class Figura(ABC):
+    @abstractclassmethod
+    def setNombre(self, nombre):
+        pass
+   
+    @abstractclassmethod
+    def getNombre(self):
+        pass
+    
+    @abstractclassmethod
+    def mover(self, x, y):
+        pass
 
+    @abstractclassmethod
+    def getPosicion(self):
+        pass
+    
+    @abstractclassmethod
+    def clonar(self):
+        pass
 
---------------
+from abc import abstractmethod
+from re import X
+from Figura import *
+
+class Circulo(Figura):
+    def __init__(self, nombre, x, y):
+
+        self._nombre = nombre
+        self._x = x
+        self._y = y
+
+    def setNombre(self, nombre):
+        self._nombre = nombre
+
+    def getNombre(self):
+        return self._nombre
+    
+    def mover(self, x, y):
+        self._x = x
+        self._y = y
+
+    def getPosicion(self):
+        print(self._x)
+        print(self._y)
+    
+    def clonar(self):
+        figura = Circulo(self._nombre, self._x, self._y )
+        return figura
+from abc import abstractmethod
+from re import X
+from Figura import *
+
+class Cuadrado(Figura):
+
+    def __init__(self, nombre, x, y):
+
+        self._nombre = nombre
+        self._x = x
+        self._y = y
+
+    def setNombre(self, nombre):
+        self._nombre = nombre
+
+    def getNombre(self):
+        return self._nombre
+    
+    def mover(self, x, y):
+        self._x = x
+        self._y = y
+
+    def getPosicion(self):
+        print(self._x)
+        print(self._y)
+    
+    def clonar(self):
+        figura = Cuadrado(self._nombre,self._x, self._y )
+        return figura
+    
+from Circulo import *
+from Cuadrado import *
+class Principal:
+    circulo = Circulo("Mi circulo", 10, 10)
+    cuadrado = Cuadrado("Mi cuadrado", 15, 15)
+
+    print("Informacion de las figuras originales")
+    
+    print(circulo.getNombre())
+    circulo.getPosicion()
+
+    print(cuadrado.getNombre())
+    cuadrado.getPosicion()
+
+    print("Informacion de las figuras clonadas")
+
+    clonCirculo = circulo.clonar()
+    clonCirculo.setNombre("Clon del circulo")
+    clonCirculo.mover(11, 11)
+    print(clonCirculo.getNombre())
+    clonCirculo.getPosicion()
+
+    clonCuadrado = cuadrado.clonar()
+    clonCuadrado.setNombre("Clon del cuadrado")
+    clonCuadrado.mover(16, 16)
+    print(clonCuadrado.getNombre())
+    clonCuadrado.getPosicion()
 
 * Caso de uso:
   Crear un elemento prefabricado como se hace en unity. Se crea un objeto y posteriomente se va clonando y se le realizan modificaciones sobre la marcha
   
-
+Abstract Factory
 
 
   
