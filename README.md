@@ -68,7 +68,7 @@ Builder:
   4.- Clase creacional
   5.- Clase cliente
  
- -> Java
+Java.
  
 public class Pizza 
 {
@@ -96,7 +96,6 @@ public class Pizza
 
 public class HawaiPizzaBuilder extends PizzaBuilder
 {
-
     @Override
     public void buildMasa()
     {
@@ -116,8 +115,8 @@ public class HawaiPizzaBuilder extends PizzaBuilder
     }
 }
 
-public abstract class PizzaBuilder {
-
+public abstract class PizzaBuilder 
+{
     protected Pizza pizza;
     public Pizza getPizza()
     {
@@ -133,8 +132,8 @@ public abstract class PizzaBuilder {
     
 }
 
-public class Principal {
-
+public class Principal 
+{
     public static void main(String[] args)
     {
         Cocina cocina = new Cocina();
@@ -146,18 +145,112 @@ public class Principal {
     }
 }
 
---------------
+Python.
+from abc import ABC, abstractmethod
+from Pizza import *
 
--> Python
---------------
+class PizzaBuilder(ABC):
 
---------------
+    _pizza = None
+
+    def getPizza(self):
+        return self._pizza
+    
+    def crearNuevaPizza(self):
+        self._pizza = Pizza()
+
+    @abstractmethod
+    def buildMasa(self):
+        pass
+    @abstractmethod
+    def buildSalsa(self):
+        pass
+    @abstractmethod
+    def buildRelleno(self):
+        pass
+from PizzaBuilder import *
+
+class MexicanaPizzaBuilder(PizzaBuilder):
+    
+    def buildMasa(self):
+        self._pizza.setMasa("gruesa")
+        
+    def buildSalsa(self):
+        self._pizza.setSalsa(" Extra picante")
+
+    def buildRelleno(self):
+        self._pizza.setRelleno(" bolitas de carne")
+from PizzaBuilder import *
+
+class HawainaPizzaBuilder(PizzaBuilder):
+    
+    def buildMasa(self):
+        self._pizza.setMasa("suave")
+        
+    def buildSalsa(self):
+        self._pizza.setSalsa(" dulce")
+
+    def buildRelleno(self):
+        self._pizza.setRelleno(" Piña")
+from PizzaBuilder import *
+class Cocina:
+
+    _pizzaBuilder = None
+
+    def setPizzaBuilder(self, pb):
+        self._pizzaBuilder = pb
+    
+    def getPizza(self):
+        return self._pizzaBuilder.getPizza()
+    
+    def constuirPizza(self):
+        self._pizzaBuilder.crearNuevaPizza()
+        self._pizzaBuilder.buildMasa()
+        self._pizzaBuilder.buildRelleno()
+        self._pizzaBuilder.buildSalsa()
+
+class Pizza:
+    _masa = " "
+    _relleno = " "
+    _salsa = " "
+    
+    def setMasa(self, masa):
+        self._masa = masa
+    
+    def setRelleno(self, relleno):
+        self._relleno = relleno
+    
+    def setSalsa(self,salsa):
+        self._salsa = salsa
+
+    def dataPizza(self):
+        print("Pizza: " + self._masa + self._relleno + self._salsa)
+
+from MexicanaPizzaBuilder import *
+from Cocina import *
+from HawainaPizzaBuilder import *
+from Pizza import *
+
+cocina = Cocina()
+hawai = HawainaPizzaBuilder()
+mexican = MexicanaPizzaBuilder()
+
+cocina.setPizzaBuilder(hawai)
+cocina.constuirPizza()
+
+pizza = cocina.getPizza()
+pizza.dataPizza()
+
+cocina.setPizzaBuilder(mexican)
+cocina.constuirPizza()
+pizza2 = cocina.getPizza()
+pizza2.dataPizza()
+        
+
 
 * Caso de uso:
   1.- En un videojuego, cuando se quieren crear diferentes tipos de autos con caracteristicas diferetes
   
-
-+-------------------------------------------------------------------------------------------------------------------+
 
 Factory
 
@@ -177,7 +270,7 @@ Factory
  4.- Clase principal de ejecucion (cliente)
 
  
- -> Java
+Java
   
 public interface Shape{
     void draw();
@@ -254,9 +347,9 @@ public class ShapeFactory {
     }
     
 }
---------------
 
--> Python
+
+Python
 class shape(object):
 
     numLados = 0
@@ -319,14 +412,12 @@ if __name__ == '__main__':
     cuadrado.getLados()
     cuadrado.draw()
     
---------------
 
 Caso de uso: Podemos poner de ejemplo nuevamente un videojuego que requiero que se genere de manera aleatoria los enemigos para soprender a los jugadores
 evitando relacionar un enemigo a cada mapa o nivel. Asi como tambien para crear variaciones de un solo enemigo, volviendolo mas fuerte o debil por ejemplo.
 
-+-------------------------------------------------------------------------------------------------------------------+
 
-Prototype
+Prototype:
 
 * Explicacion:
 
@@ -338,8 +429,8 @@ Prototype
   2.- Clases concretas
   3.- Clase principal
 
--> Java
---------------
+Java
+
 public interface Figura 
 {
     public void setNombre(String n);
@@ -439,7 +530,8 @@ public class Principal
     
 }
 
--> Python:
+Python:
+
 from abc import ABC, abstractclassmethod
 
 class Figura(ABC):
@@ -491,24 +583,23 @@ class Circulo(Figura):
     def clonar(self):
         figura = Circulo(self._nombre, self._x, self._y )
         return figura
+        
 from abc import abstractmethod
 from re import X
 from Figura import *
 
 class Cuadrado(Figura):
-
     def __init__(self, nombre, x, y):
-
         self._nombre = nombre
         self._x = x
         self._y = y
-
+        
     def setNombre(self, nombre):
         self._nombre = nombre
-
+        
     def getNombre(self):
         return self._nombre
-    
+   
     def mover(self, x, y):
         self._x = x
         self._y = y
@@ -526,23 +617,17 @@ from Cuadrado import *
 class Principal:
     circulo = Circulo("Mi circulo", 10, 10)
     cuadrado = Cuadrado("Mi cuadrado", 15, 15)
-
     print("Informacion de las figuras originales")
-    
     print(circulo.getNombre())
     circulo.getPosicion()
-
     print(cuadrado.getNombre())
     cuadrado.getPosicion()
-
     print("Informacion de las figuras clonadas")
-
     clonCirculo = circulo.clonar()
     clonCirculo.setNombre("Clon del circulo")
     clonCirculo.mover(11, 11)
     print(clonCirculo.getNombre())
     clonCirculo.getPosicion()
-
     clonCuadrado = cuadrado.clonar()
     clonCuadrado.setNombre("Clon del cuadrado")
     clonCuadrado.mover(16, 16)
