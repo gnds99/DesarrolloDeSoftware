@@ -13,28 +13,29 @@ Singleton es usado cuando queremos crear una instancia de una clase en concreto,
   
 Java.
  
-public class Main {
- public static void main(String[] args) 
- {
-          Singleton miSingleton = Singleton.getSingleton();
-          Singleton otroSingleton=Singleton.getSingleton();
-          System.out.println(miSingleton==otroSingleton);
-    }
-}
+public class Main 
+  {
+   public static void main(String[] args) 
+   {
+            Singleton miSingleton = Singleton.getSingleton();
+            Singleton otroSingleton=Singleton.getSingleton();
+            System.out.println(miSingleton==otroSingleton);
+      }
+  }
 
 public class Singleton 
-{
-    static private Singleton singleton = null;
-    private Singleton(){}
-    static public Singleton getSingleton(){
-       if (singleton == null){
-           singleton = new Singleton();
-       }
-       return singleton;
-    }
-}
+  {
+      static private Singleton singleton = null;
+      private Singleton(){}
+      static public Singleton getSingleton(){
+         if (singleton == null){
+             singleton = new Singleton();
+         }
+         return singleton;
+      }
+  }
 
--> Python.
+Python.
 
 class SingletonMeta(type):
     _instances={}
@@ -270,14 +271,14 @@ Factory
  4.- Clase principal de ejecucion (cliente)
 
  
-Java
+Java.
   
 public interface Shape{
     void draw();
 }
 
-public class Rectangle implements Shape {
-
+public class Rectangle implements Shape 
+{
     @Override
     public void draw()
     {
@@ -294,8 +295,8 @@ public class Rectangle implements Shape {
 }
 
 
-public class Square implements Shape {
-
+public class Square implements Shape 
+{
     @Override
     public void draw()
     {
@@ -311,8 +312,8 @@ public class Square implements Shape {
     
 }
 
-public class ShapeFactory {
-
+public class ShapeFactory 
+{
     //use getShape method to get object of type shape 
     public Shape getShape(String shapeType){
        if(shapeType == null){
@@ -329,8 +330,8 @@ public class ShapeFactory {
     }
  }
  
- public class Principal {
- 
+ public class Principal 
+ {
     public static void main(String[] args){
         ShapeFactory shapeFactory = new ShapeFactory();
         // Construyendo un objeto de tipo triangulo
@@ -349,7 +350,7 @@ public class ShapeFactory {
 }
 
 
-Python
+Python.
 class shape(object):
 
     numLados = 0
@@ -429,7 +430,7 @@ Prototype:
   2.- Clases concretas
   3.- Clase principal
 
-Java
+Java.
 
 public interface Figura 
 {
@@ -530,7 +531,7 @@ public class Principal
     
 }
 
-Python:
+Python.
 
 from abc import ABC, abstractclassmethod
 
