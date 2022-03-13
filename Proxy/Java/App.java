@@ -8,5 +8,4 @@ public class App {
         debito = cuenta.retirarDinero(debito, 200);
         cuenta.mostrarSaldo(debito);
     }
-    
 }

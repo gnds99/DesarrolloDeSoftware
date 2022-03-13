@@ -1,5 +1,4 @@
 from EnemyDecorator import *
-
 class HelmetDecorator(EnemyDecorator):
     
     def __init__(self, enemy):

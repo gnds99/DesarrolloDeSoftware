@@ -10,4 +10,4 @@ public class App
         int computedDamaged = enemyWithHelmetAndArmour.takeDamage();
         System.out.println(computedDamaged);
     }
-}
+} 

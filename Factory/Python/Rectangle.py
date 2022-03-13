@@ -1,4 +1,3 @@
-
 from Shape import shape
 
 class rectangle(shape):

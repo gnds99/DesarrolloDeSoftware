@@ -13,14 +13,8 @@ public abstract class PizzaBuilder {
     {
         pizza = new Pizza();
     }
-
-
     public abstract void buildMasa();
     public abstract void buildSalsa();
     public abstract void buildRelleno();
-
-    
-
-
     
 }

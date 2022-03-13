@@ -1,7 +1,6 @@
 
 public class HelmentDecorator extends EnemyDecorator {
     
-
     HelmentDecorator(Enemy enemy) {
         super(enemy);
     }

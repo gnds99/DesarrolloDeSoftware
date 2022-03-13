@@ -9,5 +9,3 @@ if __name__ == '__main__':
     cuadrado = mi_shape.get_Shape('s', 2)   
     cuadrado.getLados()
     cuadrado.draw()
-
-

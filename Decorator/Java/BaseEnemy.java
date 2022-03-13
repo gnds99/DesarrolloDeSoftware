@@ -5,6 +5,4 @@ public class BaseEnemy implements Enemy {
     public int takeDamage() {
         return 10;
     }
-    
-
 }

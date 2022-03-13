@@ -7,3 +7,4 @@ public class DifficultEnemy implements Enemy {
     }
     
 }
+ 

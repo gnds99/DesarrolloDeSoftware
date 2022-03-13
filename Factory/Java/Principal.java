@@ -1,5 +1,4 @@
 public class Principal {
-
     public static void main(String[] args){
         ShapeFactory shapeFactory = new ShapeFactory();
 
@@ -16,8 +15,5 @@ public class Principal {
         // Construyendo un objeto tipo cuadrado
         Shape cuadrado = shapeFactory.getShape("SQUARE");
         cuadrado.draw(); // dibujando el cuadrado
-
-
     }
-    
 }

@@ -1,4 +1,3 @@
-
 public class CuentaProxy implements Icuenta {
     //private CuentaBanco cuentaReal;
     private Icuenta cuentaReal;
@@ -34,5 +33,4 @@ public class CuentaProxy implements Icuenta {
             cuentaReal.mostrarSaldo(cuenta);
         }
     }
-
 }

@@ -4,5 +4,3 @@ public class Square implements Shape {
         System.out.println("Dentro de clase cuadrado::Draw metodo");
     } 
 }
-
-

@@ -19,6 +19,4 @@ public class ShapeFactory
         System.out.println(circle);
         return circle;
      }
-
-
 }

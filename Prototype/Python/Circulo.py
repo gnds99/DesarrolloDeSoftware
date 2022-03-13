@@ -27,6 +27,3 @@ class Circulo(Figura):
     def clonar(self):
         figura = Circulo(self._nombre, self._x, self._y )
         return figura
-    
-
-    

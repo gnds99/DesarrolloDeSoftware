@@ -27,6 +27,3 @@ class Cuadrado(Figura):
     def clonar(self):
         figura = Cuadrado(self._nombre,self._x, self._y )
         return figura
-    
-
-    

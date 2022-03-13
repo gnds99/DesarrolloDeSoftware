@@ -13,7 +13,4 @@ class Cocina:
         self._pizzaBuilder.crearNuevaPizza()
         self._pizzaBuilder.buildMasa()
         self._pizzaBuilder.buildRelleno()
-        self._pizzaBuilder.buildSalsa()
-
-    
-        
+        self._pizzaBuilder.buildSalsa()  
