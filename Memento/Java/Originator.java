@@ -14,7 +14,7 @@ public class Originator {
 
     public Memento guardar()
     {
-        return new Memento(estado);
+        return new Memento(estado); 
     }
 
     public void restaurar(Memento m)

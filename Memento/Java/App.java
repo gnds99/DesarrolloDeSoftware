@@ -14,30 +14,31 @@ public class App {
         juego = new Juego();
         juego.setNombre(nombreJuego);
         juego.setCheckPoint(2);
-        originator.setEstado(juego);
+        originator.setEstado(juego); // cargar
 
         juego = new Juego();
         juego.setNombre(nombreJuego);
+        juego.setCheckPoint(3);
         // guardando el punto 3
         originator.setEstado(juego); // cargamos el estado
 
-        caretaker.addMemento(originator.guardar()); // guardamos el estado
+        caretaker.addMemento(originator.guardar()); // guardamos el estado 0
 
-        juego = new Juego();
+        juego = new Juego(); // 
         juego.setNombre(nombreJuego);
-        juego.setCheckPoint(4);
+        juego.setCheckPoint(4); 
 
         // guardando el punto 4
         originator.setEstado(juego); // cargamos el estado
-        caretaker.addMemento(originator.guardar()); // guardamos el estado
+        caretaker.addMemento(originator.guardar()); // guardamos el estado 1
 
-        juego = new Juego();
+        juego = new Juego(); // 
         juego.setNombre(nombreJuego);
         juego.setCheckPoint(5);
         originator.setEstado(juego); // cargamos el estado
 
 
-        originator.restaurar(caretaker.getMemento(1));
+        originator.restaurar(caretaker.getMemento(0));
 
         juego = originator.getEstado();
         System.out.println(juego);

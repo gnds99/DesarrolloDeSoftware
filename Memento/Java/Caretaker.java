@@ -2,16 +2,15 @@ import java.util.ArrayList;
 
 public class Caretaker {
     
-    private ArrayList<Memento> mementos = new ArrayList<Memento>();
+    private ArrayList<Memento> mementos = new ArrayList<Memento>(); // estante 
 
     public void addMemento(Memento m)
     {
-        mementos.add(m);
+        mementos.add(m); 
     }
 
     public Memento getMemento(int index)
     {
         return mementos.get(index);
     }
-
 }

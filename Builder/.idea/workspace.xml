@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0dc24182-5129-4bfa-9c19-8285d025fc6e" name="Changes" comment="" />
+    <list default="true" id="0dc24182-5129-4bfa-9c19-8285d025fc6e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Memento/Java/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Memento/Java/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Memento/Java/Caretaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Memento/Java/Caretaker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Memento/Java/Juego.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Memento/Java/Juego.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Memento/Java/Memento.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Memento/Java/Memento.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Memento/Java/Originator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Memento/Java/Originator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer/Java2/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer/Java2/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer/Java2/Motor.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer/Java2/Motor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer/Java2/Observador.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer/Java2/Observador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Observer/Java2/SujetoObservable.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Observer/Java2/SujetoObservable.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

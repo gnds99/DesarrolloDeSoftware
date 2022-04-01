@@ -7,7 +7,7 @@ public class Memento {
         this.estado = estado;
     }
 
-    public Juego getEstado()
+    public Juego getEstado() 
     {
         return estado;
     }

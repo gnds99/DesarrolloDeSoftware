@@ -7,6 +7,4 @@ public class Motor implements Observador {
         System.out.println("Subir la potencia");
         
     }
-    
-
 }

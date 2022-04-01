@@ -1,6 +1,5 @@
 public class App 
 {
-
     public static void main(String args[])
     {
         Motor v8 = new Motor();
@@ -9,5 +8,4 @@ public class App
         x.attach(v8);
         x.pisarAcelerador();
     }
-
 }
